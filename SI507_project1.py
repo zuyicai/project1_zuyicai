@@ -1,5 +1,5 @@
 from flask import Flask
-from lab3try import *
+from lab3_code import *
 
 # Set up application
 app = Flask(__name__)
@@ -49,18 +49,17 @@ def poundamt(amt):
 #Amazing = Bank("A%20m%20a%20z%20i%20n%20g", Yuan, 17600)
 @app.route('/bank/<name>/<currency>/<value>')
 def ability(name, currency, value):
-    if currency == Dollar:
-        currency = Dollar
-        return '<h1>Welcome to the {} bank! {} Bank holds the {} currency and currently holds {} of {}.</h1>'.format(name, name, currency, value, currency)
-        #Welcome to the NAME bank! NAME Bank holds the CURRENCY currency and currently holds VALUE of CURRENCY.
-    elif currency == Yuan:
-        currency = Yuan
-        return '<h1>Welcome to the {} bank! {} Bank holds the {} currency and currently holds {} of {}.</h1>'.format(name, name, currency, value, currency)
-        #Welcome to the NAME bank! NAME Bank holds the CURRENCY currency and currently holds VALUE of CURRENCY.
-    elif currency == Pound:
-        currency = Pound
+    if currency == 'Dollar':
+        currency = 'Dollar'
+    elif currency == 'Yuan':
+        currency = 'Yuan'
+    elif currency == 'Pound':
+        currency = 'Pound'
     else:
         return '<h1>Invalid URL inputs for bank.</h1>'
+    return '<h1>Welcome to the {} bank! {} Bank holds the {} currency and currently holds {} of {}.</h1>'.format(name, name, currency, value, currency)
+        #Welcome to the NAME bank! NAME Bank holds the CURRENCY currency and currently holds VALUE of CURRENCY.
+
 
 if __name__ == '__main__':
     app.run()
