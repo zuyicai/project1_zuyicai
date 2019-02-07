@@ -30,7 +30,7 @@ $ source <projectname>-env/Scripts/activate    # For Windows
 pip install -r requirements.txt
 ```
 ```
-Deactivate
+deactivate
 ```
 * Just run the banking app!
 ```
