@@ -23,7 +23,7 @@ def welcomebank(name):
 @app.route('/dollar/<amt>')#http://127.0.0.1:5000/dollar/25
 def dollaramt(amt):
     dollar = Dollar(int(amt))
-    return '<h1>NUMBER Dollars /{} {}</h1>'.format(dollar.value,dollar.unit_name)
+    return '<h1>NUMBER Dollars /{}</h1>'.format(dollar.__repr__())
     #number dollars
 
 
@@ -31,14 +31,14 @@ def dollaramt(amt):
 @app.route('/yuan/<amt>')#http://127.0.0.1:5000/yuan/1
 def yuanamt(amt):
     yuan = Yuan(int(amt))
-    return '<h1>NUMBER Yuan /{} {}</h1>'.format(yuan.value,yuan.unit_name)
+    return '<h1>NUMBER Yuan /{}</h1>'.format(yuan.__repr__())
 
 
 
 @app.route('/pound/<amt>')#http://127.0.0.1:5000/pound/100
 def poundamt(amt):
     pound = Pound(int(amt))
-    return '<h1>NUMBER Pounds /{} {}</h1>'.format(pound.value,pound.unit_name)
+    return '<h1>NUMBER Pounds /{}</h1>'.format(pound.__repr__())
 
 
 #the last part
@@ -47,7 +47,7 @@ def poundamt(amt):
 @app.route('/bank/<name>/<currency>/<value>')#http://127.0.0.1:5000/bank/A%20m%20a%20z%20i%20n%20g/Yuan/17600
 def bank_ability(name, currency, value):
     validcurrency = ['Dollar', 'Yuan', 'Pound']
-    if currency == valid_urrency[0]:
+    if currency == validcurrency[0]:
         bank = Bank(name, Dollar, int(value))
     elif currency == validcurrency[1]:
         bank = Bank(name, Yuan, int(value))
